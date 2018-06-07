@@ -20,15 +20,10 @@ android {
     compileSdkVersion rootProject.compileSdk
     buildToolsVersion rootProject.buildTools
 
-    defaultConfig {
-        minSdkVersion rootProject.minSdk
-        targetSdkVersion rootProject.targetSdk
-        versionCode rootProject.versionCode
-        versionName rootProject.versionName
-    }
+    defaultConfig {}
 
     buildTypes {
-        release {}
+        minified {}
         debug {}
     }
 }

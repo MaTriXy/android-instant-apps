@@ -25,9 +25,20 @@ android {
         targetSdkVersion rootProject.compileSdk
         versionCode rootProject.versionCode
         versionName rootProject.versionName
+
+        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
+
+    // Switch between test types by swapping commented out state
+    testBuildType /* 'debug' */  'minified'
+
     buildTypes {
-        release {}
+        minified {
+            debuggable true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), '../../proguard.pro'
+            signingConfig signingConfigs.debug
+        }
         debug {}
     }
 
@@ -38,5 +49,5 @@ dependencies {
     application project(":installed")
     feature project(':features:bye')
     feature project(':features:hello')
-    api "com.android.support:appcompat-v7:${rootProject.supportLib}"
+    api "com.android.support:appcompat-v7:$supportLib"
 }

@@ -18,34 +18,33 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     repositories {
+        google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0-alpha1'
+        classpath 'com.android.tools.build:gradle:3.2.0-alpha14'
         classpath 'com.google.gms:google-services:3.1.0'
     }
 }
 
 allprojects {
     repositories {
-        maven {
-            url 'https://maven.google.com'
-        }
+        google()
         jcenter()
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
-
 ext {
-    buildTools = '26.0.0-rc2'
-    compileSdk = 25
-    minSdk = 23
+    buildTools = '27.0.3'
+    compileSdk = 27
+    minSdk = 15
     versionCode = 1
     versionName = '1.0'
-    supportLib = '25.3.1'
-    firebaseVer = '10.2.4'
-    instantAppsVer = '1.0.0'
+    supportLib = '27.0.1'
+    firebaseVer = '11.6.0'
+    instantAppsVer = '1.1.0'
+
+    espressoVersion = "3.0.1"
+    androidTestVersion = "1.0.1"
+    hamcrestVersion = "1.3"
 }

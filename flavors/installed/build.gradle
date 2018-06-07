@@ -27,18 +27,16 @@ android {
         versionName rootProject.versionName
     }
 
-    signingConfigs {
-        config {
-            keyAlias rootProject.keyAlias
-            keyPassword rootProject.keyPassword
-            storeFile rootProject.storeFile
-            storePassword rootProject.storePassword
-        }
-    }
+    // Switch between test types by swapping commented out state
+    testBuildType /* 'debug' */  'minified'
 
     buildTypes {
+        minified {
+            debuggable true
+            minifyEnabled true
+            signingConfig signingConfigs.debug
+        }
         debug {}
-        release {}
     }
 
     flavorDimensions "pricing"

@@ -20,7 +20,8 @@
     <application>
         <activity
             android:name=".GoodbyeActivity"
-            android:label="@string/title_activity_goodbye">
+            android:label="@string/title_activity_goodbye"
+            android:theme="@style/AppTheme">
 
             <intent-filter
                 android:autoVerify="true"
@@ -30,14 +31,10 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
 
-                <data
-                    android:host="hello-flavors.instantappsample.com"
-                    android:pathPrefix="/goodbye"
-                    android:scheme="https" />
-                <data
-                    android:host="hello-flavors.instantappsample.com"
-                    android:pathPrefix="/goodbye"
-                    android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:scheme="http" />
+                <data android:host="hello-flavors.instantappsample.com" />
+                <data android:pathPrefix="/goodbye" />
 
             </intent-filter>
 

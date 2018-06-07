@@ -17,25 +17,38 @@
 apply plugin: 'com.android.feature'
 
 android {
+    baseFeature true
+
     compileSdkVersion rootProject.compileSdk
     buildToolsVersion rootProject.buildTools
-    baseFeature true
+
     defaultConfig {
         minSdkVersion rootProject.minSdk
         targetSdkVersion rootProject.compileSdk
         versionCode rootProject.versionCode
         versionName rootProject.versionName
     }
+
+    // Switch between test types by swapping commented out state
+    testBuildType /* 'debug' */  'minified'
+
     buildTypes {
-        release {}
+        minified {
+            debuggable true
+            minifyEnabled true
+            signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), '../proguard.pro'
+        }
+        debug {}
     }
 }
 
 dependencies {
     feature project(':feature')
-    api "com.android.support:appcompat-v7:${rootProject.supportLib}"
-    api "com.google.firebase:firebase-core:${rootProject.firebaseVer}"
-    api "com.google.android.instantapps:instantapps:${rootProject.instantAppsVer}"
+    api "com.android.support:appcompat-v7:$supportLib"
+    api "com.google.firebase:firebase-core:$firebaseVer"
+    api "com.google.android.instantapps:instantapps:$instantAppsVer"
+    application project(':installed')
 }
 
 // Add to the bottom of the file

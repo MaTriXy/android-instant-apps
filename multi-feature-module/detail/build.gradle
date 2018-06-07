@@ -25,24 +25,17 @@ android {
         targetSdkVersion rootProject.targetSdk
         versionCode rootProject.versionCode
         versionName rootProject.versionName
+
+        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
 
-    dataBinding {
-        enabled true
-    }
-
-    signingConfigs {
-        release {
-            keyAlias rootProject.keystoreProperties['keyAlias']
-            keyPassword rootProject.keystoreProperties['keyPassword']
-            storeFile file(rootProject.keystoreProperties['storeFile'])
-            storePassword rootProject.keystoreProperties['storePassword']
-        }
-    }
+    // Switch between test types by swapping commented out state
+    testBuildType /* 'debug' */  'minified'
 
     buildTypes {
-        release {
-            signingConfig signingConfigs.release
+        minified {
+            debuggable true
+            signingConfig signingConfigs.debug
         }
         debug {}
     }
@@ -54,5 +47,11 @@ android {
 }
 
 dependencies {
-    api project(':base')
+    implementation project(':base')
+
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$espressoVersion"
+    androidTestImplementation "com.android.support.test:rules:$androidTestVersion"
+    androidTestImplementation "com.android.support.test:runner:$androidTestVersion"
+    androidTestImplementation "org.hamcrest:hamcrest-core:$hamcrestVersion"
 }

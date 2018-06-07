@@ -16,6 +16,10 @@
 
 apply plugin: 'com.android.instantapp'
 
+android {
+    defaultConfig {}
+}
+
 dependencies {
     implementation project(':feature')
     implementation project(':base')
