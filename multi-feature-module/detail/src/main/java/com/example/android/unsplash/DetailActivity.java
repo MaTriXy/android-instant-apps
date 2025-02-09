@@ -19,7 +19,7 @@ package com.example.android.unsplash;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 import android.transition.Fade;
 import android.transition.Slide;
 import android.transition.TransitionSet;
@@ -109,7 +109,7 @@ public class DetailActivity extends Activity {
         });
 
         viewPager.setPageMargin(getResources().getDimensionPixelSize(
-                com.example.android.unsplash.base.R.dimen.padding_mini));
+                com.example.android.unsplash.R.dimen.padding_mini));
         viewPager.setPageMarginDrawable(R.drawable.page_margin);
     }
 
